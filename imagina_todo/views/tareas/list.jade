@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+
+    .container
+          .card-columns
+            each tarea in tareas
+                .card
+                  h3.card-header.card-success= tarea.title + " " + tarea.status
+                  .card-block
+                    p.card-text= tarea.description
+
+                    each tag in tarea.tags
+                        a.card-link(href='#')=tag
+                    hr
+                    .text-xs-center
+                      a.btn.btn-imagina(href='/tareas/edit/#{tarea._id}')
+                        | Ver (#{tarea.createdAt})
+                        i.fa.fa-arrow-right(style='color:white;padding-right:16px;')

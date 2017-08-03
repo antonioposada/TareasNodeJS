@@ -24,7 +24,9 @@ html(lang='es')
           .pull-right
             ul.nav.navbar-nav
               li
-                a(href='/new') añadir
+                a(href='/tareas') tareas
+              li
+                a(href='/tareas/edit/new') añadir
               li
                 a(href='/searh') buscar
               li
@@ -37,3 +39,5 @@ html(lang='es')
                 a(href='#') user
     .container
       block content
+
+    block foot

@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    .row
+        br
+        .col-sm-12
+            .card
+                form(action="/tareas/edit/new",method="POST",id="form_tarea")
+                    h3.card-header.card-info
+                        label.sr-only(for='inputTitle') Title:
+                        input#inputTitle.form-control(type='text', required='',name='title')
+                    .card-block
+                        label.sr-only(for='inputDescription') Description:
+                        input#inputDescription.form-control(type='text', required='',name='description')
+
+                        label.sr-only(for='inputTags') Tags:
+                        input#inputTags.form-control(type='text', required='',name='tags')
+                        hr
+                        label.sr-only(for='inputStatus') Select Status:
+                        select#inputStatus.form-control(name='status',required='')
+                            option(value='Todo') Todo
+                            option(value='Doing') Doing
+                            option(value='Review') Review
+                            option(value='Done') Done
+                        hr
+                .text-xs-center
+                    a.btn.btn-warning(href='/tareas')
+                        | Volver
+                        i.fa.fa-arrow-left
+
+                    a.btn.btn-success(href='#',onclick="$('#form_tarea').submit();")
+                        | Guardar
+                        i.fa.fa-pencil-square-o

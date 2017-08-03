@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+    if flash
+      p.alert.alert-success(id='message')=flash
+
+    .row
+      br
+      .col-sm-12
+        .card
+          form(action="/tareas/edit",method="POST",id="form_tarea")
+              input.form-control(type='hidden', value='#{tarea._id}',name='id')
+              h3.card-header.card-info
+                label.sr-only(for='inputTitle') Title:
+                input#inputTitle.form-control(type='text', placeholder='#{tarea.title}',name='title')
+              .card-block
+                label.sr-only(for='inputDescription') Description:
+                input#inputDescription.form-control(type='text', placeholder='#{tarea.description}',name='description')
+
+                label.sr-only(for='inputTags') Tags:
+                input#inputTags.form-control(type='text', placeholder='#{tarea.tags}',name='tags')
+                hr
+                label.sr-only(for='inputStatus') Select Status:
+                select#inputStatus.form-control(name='status')
+                  option(value='Todo') Todo
+                  option(value='Doing') Doing
+                  option(value='Review') Review
+                  option(value='Done') Done
+                hr
+                p.card-text Creado en: #{tarea.createdAt}
+                p.card-text Actualizado en:
+                hr
+            .text-xs-center
+              a.btn.btn-warning(href='/tareas')
+                | Volver
+                i.fa.fa-arrow-left
+              a.btn.btn-success(href='#',onclick="EditarTarea('#{tarea._id}');")
+                | Editar
+                i.fa.fa-pencil-square-o
+              a.btn.btn-danger(href='#' onclick="BorrarTarea('#{tarea._id}');")
+                | Eliminar
+                i.fa.fa-trash-o
+
+block foot
+  script(src='../../javascripts/tareaClient.js')
