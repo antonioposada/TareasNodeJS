@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
 });
 
 //Indicamos que solo queremos utilizar Twig y no jade
-var Twig = require('twig');
+/*var Twig = require('twig');
 
 app.set('views',path.join(__dirname,'views'));
 app.set('view_engine','twig');
@@ -51,6 +51,6 @@ app.set('view_engine','twig');
 app.set('twig options', {
   strict_variables: false
 });
-app.set('view cache', false);
+app.set('view cache', false);*/
 
 module.exports = app;
