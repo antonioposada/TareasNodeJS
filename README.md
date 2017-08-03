@@ -1,2 +1,2 @@
 # TareasNodeJS
-Curso de NodeJS
+Curso de NodeJS. En este repositorio ire alojando los distintos proyectos del curso
